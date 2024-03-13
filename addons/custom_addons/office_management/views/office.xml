@@ -1,0 +1,31 @@
+<odoo>
+
+<record id='office_class_form_view' model="ir.vi.view">
+    <field name='name'> office.employee.form</field>
+    <field name='model'>office.employee</field>
+    <field name='arch' type='xml'>
+    <form string="Employee">
+
+        <sheet>
+            <group>
+                <group>
+                    <field name="name"/>
+                    <field name="class_id"/>
+                    <field name="division"/>
+                
+                </group>
+            </group>
+        </sheet>
+    </form>
+</record>
+
+<record id="action_employee" model="ir.actions.act_window">
+    <field name="name">Name</field>
+    <field name="res_model">office.employee</field>
+    <field name="view_mode">kanban,tree,form</field>
+    <field name="help" type="html">
+    <p class="o_view_nocontent_smiling_Face">
+        Create Office details
+    </p>
+    </field>
+    </record>
