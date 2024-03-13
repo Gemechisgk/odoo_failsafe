@@ -44,6 +44,11 @@ class AccrualPlanLevel(models.Model):
         ('day', 'Days'),
         ('hour', 'Hours')
     ], compute="_compute_added_value_type", store=True, required=True, default="day")
+    # test to add 2 day bonus every two years
+    biyearly_bonus = fields.Float(
+    "Biyearly Bonus", digits=(16, 2), required=True, default=2,
+    help="Additional days given at the end of every two years"
+)
     frequency = fields.Selection([
         ('hourly', 'Hourly'),
         ('daily', 'Daily'),
@@ -52,6 +57,7 @@ class AccrualPlanLevel(models.Model):
         ('monthly', 'Monthly'),
         ('biyearly', 'Twice a year'),
         ('yearly', 'Yearly'),
+        ('Biennial', 'Once every two years')
     ], default='daily', required=True, string="Frequency")
     week_day = fields.Selection([
         ('mon', 'Monday'),
